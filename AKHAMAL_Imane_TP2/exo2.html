@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Permutation de texte</title>
+    <script>
+        function permuterContenu() {
+            var zone1 = document.getElementById('zoneTexte1');
+            var zone2 = document.getElementById('zoneTexte2');
+
+            var temp = zone1.value;
+            zone1.value = zone2.value;
+            zone2.value = temp;
+        }
+        function mettreFocus() {
+            document.getElementById('zoneTexte1').focus();
+        }
+    </script>
+</head>
+<body onload="mettreFocus()">
+    <h1>Permutation de texte</h1>
+    <input type="text" id="zoneTexte1" placeholder="Zone de texte 1">
+    <input type="text" id="zoneTexte2" placeholder="Zone de texte 2">
+    <br>
+    <button onclick="permuterContenu()">Permuter</button>
+</body>
+</html>

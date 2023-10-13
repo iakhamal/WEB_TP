@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulation de chaînes en JavaScript</title>
+    <style>
+        hr {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <script>
+        function commenceParAaD(chaine) {
+            var premiereLettre = chaine.charAt(0).toLowerCase();
+            return (premiereLettre >= 'a' && premiereLettre <= 'd');
+        }
+
+        function testerCommenceParAaD() {
+            var chaine = document.getElementById('chaine1').value;
+            var resultat = document.getElementById('resultat1');
+
+            var message = "Commence par une lettre entre 'a' et 'd': " + commenceParAaD(chaine);
+            resultat.innerHTML = message;
+        }
+
+        function contientUnArobase(chaine) {
+            return (chaine.split('@').length - 1) === 1;
+        }
+
+        function testerContientUnArobase() {
+            var chaine = document.getElementById('chaine2').value;
+            var resultat = document.getElementById('resultat2');
+
+            var message = "Contient un seul caractère '@': " + contientUnArobase(chaine);
+            resultat.innerHTML = message;
+        }
+
+        function contientChiffre(chaine) {
+            return /[0-9]/.test(chaine);
+        }
+
+        function testerContientChiffre() {
+            var chaine = document.getElementById('chaine3').value;
+            var resultat = document.getElementById('resultat3');
+
+            var message = "Contient au moins un chiffre: " + contientChiffre(chaine);
+            resultat.innerHTML = message;
+        }
+
+        function remplacerChiffresParAsterisque() {
+            var chaine = document.getElementById('chaine4').value;
+            var resultat = document.getElementById('resultat4');
+
+            var nouvelleChaine = chaine.replace(/[0-9]/g, '*');
+            resultat.innerHTML = "Avec les chiffres remplacés par '*': " + nouvelleChaine;
+        }
+    </script>
+</head>
+<body>
+    <h1>Manipulation de chaînes en JavaScript</h1>
+    <div>
+        <h2>Fonction 1 : commenceParAaD</h2>
+        <input type="text" id="chaine1" placeholder="Saisissez une chaîne">
+        <button onclick="testerCommenceParAaD()">Tester</button>
+        <div id="resultat1"></div>
+    </div>
+    <hr>
+    
+    <div>
+        <h2>Fonction 2 : contientUnArobase</h2>
+        <input type="text" id="chaine2" placeholder="Saisissez une chaîne">
+        <button onclick="testerContientUnArobase()">Tester</button>
+        <div id="resultat2"></div>
+    </div>
+    <hr>
+    
+    <div>
+        <h2>Fonction 3 : contientChiffre</h2>
+        <input type="text" id="chaine3" placeholder="Saisissez une chaîne">
+        <button onclick="testerContientChiffre()">Tester</button>
+        <div id="resultat3"></div>
+    </div>
+    <hr>
+    
+    <div>
+        <h2>Fonction 4 : remplacerChiffresParAsterisque</h2>
+        <input type="text" id="chaine4" placeholder="Saisissez une chaîne">
+        <button onclick="remplacerChiffresParAsterisque()">Tester</button>
+        <div id="resultat4"></div>
+    </div>
+</body>
+</html>

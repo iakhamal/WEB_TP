@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calcul de la factorielle</title>
+    <style>
+        #conteneur {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function calculerFactorielle() {
+            var input = document.getElementById("nombre");
+            var resultat = document.getElementById("resultat");
+            var n = parseInt(input.value);
+
+            if (!isNaN(n) && n >= 0) {
+                var factorielle = 1;
+                var expression = n + " ! = ";
+
+                for (var i = 1; i <= n; i++) {
+                    factorielle *= i;
+                    expression += i;
+
+                    if (i < n) {
+                        expression += " * ";
+                    }
+                }
+
+                resultat.innerHTML = expression + " = " + factorielle;
+            } else {
+                resultat.innerHTML = "Veuillez saisir un nombre entier positif valide.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcul de la factorielle</h1>
+    <div id="conteneur">
+        <input type="text" id="nombre" placeholder="Entrez un nombre entier positif">
+        <button onclick="calculerFactorielle()">Calculer</button>
+        <div id="resultat"></div>
+    </div>
+</body>
+</html>

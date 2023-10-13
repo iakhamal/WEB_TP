@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Table de multiplication</title>
+    <script>
+        function afficherTableMultiplication() {
+            var n;
+            var isInteger = false;
+            
+            while (!isInteger) {
+                var userInput = prompt("Veuillez entrer un nombre entier :");
+                n = parseInt(userInput);
+                
+                if (!isNaN(n) && Number.isInteger(n)) {
+                    isInteger = true;
+                } else {
+                    alert("Veuillez saisir un nombre entier valide.");
+                }
+            }
+            
+            var tableHtml = "<table border='1'>";
+            tableHtml += "<tr><th>Nombre</th><th>Résultat</th></tr>";
+            
+            for (var i = 1; i <= 10; i++) {
+                var resultat = n * i;
+                tableHtml += "<tr><td>" + n + " x " + i + "</td><td>" + resultat + "</td></tr>";
+            }
+            
+            tableHtml += "</table>";
+            
+            document.getElementById("resultat").innerHTML = tableHtml;
+        }
+    </script>
+</head>
+<body>
+    <h1>Table de multiplication</h1>
+    <button onclick="afficherTableMultiplication()">Afficher la table de multiplication</button>
+    <div id="resultat"></div>
+</body>
+</html>
